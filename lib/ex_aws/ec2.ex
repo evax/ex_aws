@@ -260,6 +260,22 @@ defmodule ExAws.EC2 do
     request(:get, "/", query_params)
   end
 
+  @doc """
+  Describes one or more of the Reserved Instances that you purchased.
+  """
+  @spec describe_reserved_instances() :: ExAws.Operation.RestQuery.t
+  @spec describe_reserved_instances(opts :: describe_instances_opts) :: ExAws.Operation.RestQuery.t
+  def describe_reserved_instances(opts \\ []) do
+    query_params = opts
+    |> normalize_opts
+    |> Map.merge(%{
+      "Action"  => "DescribeReservedInstances",
+      "Version" => @version
+      })
+
+    request(:get, "/", query_params)
+  end
+
   @type event_codes :: :instance_reboot | :system_reboot | :system_maintenance | :instance_retirement | :instance_stop
 
   @type instance_state_names :: :pending | :running | :shutting_down | :terminated | :stopping | :stopped
