@@ -5,7 +5,7 @@ defmodule ExAws.EC2 do
 
   import ExAws.Utils
 
-  @version "2015-10-01"
+  @version "2016-11-15"
 
   ########################
   ### Instance Actions ###
